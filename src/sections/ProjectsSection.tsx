@@ -12,8 +12,8 @@ export function ProjectsSection() {
                 <div className="flex flex-col items-center text-center mb-16">
                     <SectionTitle title="Featured Projects" subtitle="Portfolio" />
                     <p className="max-w-xl text-foreground/70">
-                        A selection of my recent works. Exploring different domains, from fintech dashes
-                        to interactive client platforms.
+                        A selection of product-focused work spanning fullstack platforms,
+                        internal tools, and modern web experiences built for real users.
                     </p>
                 </div>
 

@@ -8,8 +8,8 @@ interface ProjectCardProps {
     description: string;
     image: string;
     tags: string[];
-    liveUrl: string;
-    githubUrl: string;
+    liveUrl?: string;
+    githubUrl?: string;
     index: number;
 }
 
@@ -21,6 +21,9 @@ export function ProjectCard({
     githubUrl,
     index,
 }: ProjectCardProps) {
+    const hasLiveUrl = Boolean(liveUrl && liveUrl !== "#");
+    const hasGithubUrl = Boolean(githubUrl && githubUrl !== "#");
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -58,24 +61,33 @@ export function ProjectCard({
                 </div>
 
                 <div className="flex items-center gap-4 mt-auto">
-                    <a
-                        href={liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm font-medium text-white hover:text-accent transition-colors"
-                    >
-                        <FaExternalLinkAlt size={14} />
-                        Live Demo
-                    </a>
-                    <a
-                        href={githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm font-medium text-white hover:text-accent transition-colors"
-                    >
-                        <FaGithub size={16} />
-                        Code
-                    </a>
+                    {hasLiveUrl ? (
+                        <a
+                            href={liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-sm font-medium text-white hover:text-accent transition-colors"
+                        >
+                            <FaExternalLinkAlt size={14} />
+                            Live Demo
+                        </a>
+                    ) : null}
+                    {hasGithubUrl ? (
+                        <a
+                            href={githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-sm font-medium text-white hover:text-accent transition-colors"
+                        >
+                            <FaGithub size={16} />
+                            Code
+                        </a>
+                    ) : null}
+                    {!hasLiveUrl && !hasGithubUrl ? (
+                        <span className="text-sm font-medium text-foreground/50">
+                            Private project
+                        </span>
+                    ) : null}
                 </div>
             </div>
         </motion.div>

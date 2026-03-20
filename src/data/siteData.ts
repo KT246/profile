@@ -19,6 +19,14 @@ export const siteConfig = {
     ],
     projects: [
         {
+            title: "VoteDI Fullstack Voting Platform",
+            description: "A fullstack online voting system with voter login, room-based elections, admin management, realtime progress updates, QR room access, and multilingual support for Lao, Thai, Vietnamese, and English.",
+            image: "/images/project-votedi.jpg",
+            tags: ["React", "Vite", "NestJS", "MongoDB", "Socket.IO"],
+            liveUrl: "",
+            githubUrl: "https://github.com/KT246/votedi"
+        },
+        {
             title: "Fintech Dashboard",
             description: "A comprehensive analytics dashboard for financial institutions with real-time data visualization.",
             image: "/images/project-1.jpg",
